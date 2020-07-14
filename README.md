@@ -3,11 +3,12 @@
 > Project Mentor : Prof. Sujay Saha (Assistant Professor,Department of Computer Science & Engineering)
 
 Team Members
->> Arghyadip Manna
+***
+* Arghyadip Manna
 
->> Kaustav Chanda
+* Kaustav Chanda
 
->> Manish Goswami
+* Manish Goswami
 
->> Sourav Acharya Chowdhury
+* Sourav Acharya Chowdhury
 
