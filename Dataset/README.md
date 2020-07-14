@@ -7,4 +7,4 @@ There are two folders :
 
 The data from the above two is combined randomly  to generate a compressed dataset which is then preprocessed using the file preprocessing.ipynb
 
-For more details please visit : [Dataset - Google Colab](https://www.semanticscholar.org/)
+For more details please visit : [Dataset - Google Colab]()
