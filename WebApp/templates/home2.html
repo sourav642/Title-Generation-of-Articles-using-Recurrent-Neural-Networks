@@ -1,0 +1,54 @@
+{% extends "index2.html" %}
+{% block content %}
+<h2>Generate Title</h2>
+<div class="row">
+    <div class="col-md-6 card">
+
+        <div class="card-body">
+            <h5 class="card-title">Input : </h5>
+
+
+
+            <form action="{{ url_for('home') }}" method="POST">
+                <div>
+                    <textarea name="text" id="input" style="width:100%" class="form-control"
+                        rows="10">{{ abstract }}</textarea>
+                </div>
+                <div>
+                    <button href="#" type="submit" class="btn btn-dark">Generate Title</button>
+                    <a href="{{ url_for('random_sample', route = 'home') }}" class="btn btn-outline-dark pull-right">Pick
+                        Random
+                        Sample</a>
+    
+                    <a href="{{ url_for('clear') }}" class="btn btn-outline-dark">Clear</a>
+                </div>
+               
+            </form>
+
+        </div>
+    </div>
+    <div class="col-md-6 card">
+        <div class="card-body">
+            <h5 class="card-title">Generated Title : </h5>
+            <div>
+                <textarea id="output" readonly class="form-control" style="width:100%"
+                    rows="10">{{ result['title'] if result }}</textarea>
+            </div>
+            {% if result %}
+            <div>
+                <b>Time taken : </b> {{ result['time_taken']}}
+            </div>
+            {% if result['replace-count']!= 0 %}
+            <h6>Suggested alternatives for {{ "<unk>"}}:</h6>
+            <ul>
+                {% for value in result['unk-list'] %}
+                <li> {{ value }}</li>
+                {% endfor %}
+            </ul>
+            <b>{{"<unk>"}}appeared and replaced {{result['replace-count']}} times.</b>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

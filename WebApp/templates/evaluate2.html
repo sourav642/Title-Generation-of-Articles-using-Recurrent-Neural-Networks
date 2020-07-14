@@ -1,0 +1,49 @@
+{% extends "index2.html" %}
+{% block content %}
+<h2>Evaluate Title</h2>
+<div class="row">
+    <div class="col-md-6 card">
+        <div class="card-body">
+            <h5 class="card-title">Input : </h5>
+
+            <form action="{{ url_for('evaluate') }}" method="POST">
+                <div>
+                    <textarea name="asbtract" id="input" style="width:100%" class="form-control"
+                        rows="5">{{ abstract }}</textarea>
+                </div>
+                <br>
+                <h5 class="card-title">Title : </h5>
+                <div>
+                    <textarea name="title" id="input" style="width:100%" class="form-control"
+                        rows="2">{{ input_title }}</textarea>
+                </div>
+                <div>
+                    <button href="#" type="submit" class="btn btn-dark">Generate Title</button>
+                    <a href="{{ url_for('random_sample', route = 'evaluate') }}" class="btn btn-outline-dark">Pick Random
+                        Sample</a>
+                    <a href="{{ url_for('clear') }}" class="btn btn-outline-dark">Clear</a>
+                </div>
+               
+            </form>
+
+        </div>
+    </div>
+    <div class="col-md-6 card">
+        <div class="card-body">
+            <h5 class="card-title">Generated Title : </h5>
+            <div>
+                <textarea id="output" readonly class="form-control" style="width:100%"
+                    rows="10">{{ result['title'] if result }}</textarea>
+            </div>
+            {% if result %}
+            <div>
+                <b>Time taken : </b> {{ result['time_taken']}}
+            </div>
+            <div>
+                <b>Bleu :</b> {{ result['bleu']}}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

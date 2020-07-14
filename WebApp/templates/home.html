@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6 card">
+        <div class="card-body">
+            <h5 class="card-title">Input : </h5>
+            <form action="{{ url_for('home') }}" method="POST">
+                <div>
+                    <textarea name="text" id="input" style="width:100%" class="form-control"
+                        rows="10">{{ abstract }}</textarea>
+                </div>
+                <button href="#" type="submit" class="btn btn-dark">Generate Title</button>
+                <a href="{{ url_for('clear') }}" class="btn btn-outline-dark">Clear</a>
+            </form>
+
+        </div>
+    </div>
+    <div class="col-md-6 card">
+        <div class="card-body">
+            <h5 class="card-title">Generated Title : </h5>
+            <div>
+                <textarea id="output" readonly class="form-control" style="width:100%" rows="10">{{ result }}</textarea>
+            </div>
+            {% if unklist %}
+            <span>Suggestions for {{ "unk" }} words </span>: 
+
+            {%for word in unklist %}
+
+            <li>{{ word}}</li>
+            {%endfor%}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
